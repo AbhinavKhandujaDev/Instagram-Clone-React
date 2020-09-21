@@ -1,5 +1,6 @@
 import UserModel from './UserModel';
 import {fetchUser} from '../FirebaseFiles/FirebaseFunctions';
+import {currentUserId, userLikesRef} from '../FirebaseFiles/firebase.js';
 
 export default class PostModel {
     constructor(postId, snapshot) {
@@ -19,5 +20,14 @@ export default class PostModel {
                 this.user = user || null;
             })
         }
+        // this.adjustLikes = this.adjustLikes.bind(this);
     }
+
+    // adjustLikes(addLike, completion) {
+    //     if (addLike) {
+    //         //update like from user-like structure
+    //         let value = {postId: 1}
+    //         userLikesRef.child(currentUserId).update(values)
+    //     }
+    // }
 }
