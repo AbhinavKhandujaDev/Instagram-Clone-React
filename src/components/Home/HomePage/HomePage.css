@@ -1,0 +1,29 @@
+.HomePage {
+    width: 100%;
+}
+
+.Navbar {
+    width: 100%;
+    position: fixed;
+}
+
+.home-content {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    padding-top: 100px;
+    overflow-x: hidden;
+}
+
+.posts {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 600px;
+    padding: 5px;
+    flex-direction: column;
+}
+
+.posts>.Post {
+    width: 100%;
+    margin-bottom: 60px;
+}

@@ -1,0 +1,56 @@
+.default-border-box {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #fff;
+    background-color: rgba(var(--d87, 255, 255, 255), 1);
+    border: 1px solid #dbdbdb;
+    border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+    border-radius: 1px;
+    margin: 0 0 10px;
+    padding: 10px 0;
+}
+
+.bottom-border {
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-center {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.errorBox {
+    border: 2px solid rgba(255, 0, 0, 0.447) !important;
+}
+
+.popup {
+    position: absolute;
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.495);
+    bottom: -10%;
+    opacity: 0;
+    animation: 1s ease-in reverse both popup;;
+    z-index: 10;
+}
+
+@keyframes popup {
+    from {
+        opacity: 1;
+        bottom: -10%;
+    }
+    to {
+        opacity: 0;
+        bottom: 1%;
+    }
+}
