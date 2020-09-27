@@ -1,5 +1,6 @@
 .HomePage {
     width: 100%;
+    padding-top: 100px;
 }
 
 .Navbar {
@@ -11,7 +12,6 @@
     width: 100%;
     display: grid;
     place-items: center;
-    padding-top: 100px;
     overflow-x: hidden;
 }
 
@@ -26,4 +26,10 @@
 .posts>.Post {
     width: 100%;
     margin-bottom: 60px;
+}
+
+.chats {
+    width: 100px;
+    height: 100px;
+    background-color:red;
 }

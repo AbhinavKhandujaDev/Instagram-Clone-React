@@ -38,9 +38,29 @@
     padding: 10px;
 }
 
-.Post .action-image {
+.Post .CustomButton {
     width: 24px;
     height: 24px;
     padding: 8px;
     cursor: pointer;
+}
+
+.Post .caption {
+    padding: 8px;
+}
+
+.Post #heart {
+    /* animation: bubble2 0.6s infinite; */
+}
+
+@keyframes bubble2 {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5)
+    }
+    100% {
+        transform: scale(1);
+    }
 }

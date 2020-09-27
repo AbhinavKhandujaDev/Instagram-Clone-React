@@ -17,21 +17,27 @@ export var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-export var storage = firebase.storage().ref();
-export var dbref = firebase.database().ref();
+export const storage = firebase.storage().ref();
+export const dbref = firebase.database().ref();
 
-export var usersRef = dbref.child("users");
-export var postsRef = dbref.child("posts");
-export var userFeedRef = dbref.child("user-feed");
-export var userPostsRef = dbref.child("user-posts");
-export var userLikesRef = dbref.child("user-likes");
-export var postLikesRef = dbref.child("post-likes");
-export var userFollowerRef = dbref.child("user-follower");
-export var commentsRef = dbref.child("comments");
-export var notificationsRef = dbref.child("notifications");
-export var messagesRef = dbref.child("messages");
-export var userMessagesRef = dbref.child("user-messages");
-export var hashtagPostsRef = dbref.child("hashtag-post");
-export var profileImageStorageRef = storage.child("profile_images");
+export const usersRef = dbref.child("users");
+export const postsRef = dbref.child("posts");
+export const userFeedRef = dbref.child("user-feed");
+export const userPostsRef = dbref.child("user-posts");
+export const userLikesRef = dbref.child("user-likes");
+export const postLikesRef = dbref.child("post-likes");
+export const userFollowerRef = dbref.child("user-follower");
+export const commentsRef = dbref.child("comments");
+export const notificationsRef = dbref.child("notifications");
+export const messagesRef = dbref.child("messages");
+export const userMessagesRef = dbref.child("user-messages");
+export const hashtagPostsRef = dbref.child("hashtag-post");
+export const profileImageStorageRef = storage.child("profile_images");
 
-export var currentUserId = localStorage.getItem("user");
+export const currentUserId = localStorage.getItem("user");
+
+export const likeIntValue = 0
+export const commentIntValue = 1
+export const followIntValue = 2
+export const commentMentionIntValue = 3
+export const postMentionIntValue = 4

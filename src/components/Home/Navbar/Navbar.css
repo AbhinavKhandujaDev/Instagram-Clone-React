@@ -37,7 +37,7 @@
     cursor: pointer;
 }
 
-.Navbar .nav-buttons {
+.Navbar .CustomButton {
     width: 25px;
     height: 25px;
     padding: 10px;

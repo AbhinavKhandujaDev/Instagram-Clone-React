@@ -1,11 +1,11 @@
 import * as firebase from './firebase.js';
 import PostModel from '../Models/PostModel.js'
 
-export function fetchLimitedPost(currentKey, initialCount, furtherCount, lastPostId, postFetched) { 
+export function fetchLimitedPost(currentKey, initialCount, furtherCount, lastPostId, postFetched) {
     if (currentKey == null) {
         firebase.userFeedRef.child(firebase.currentUserId).limitToLast(initialCount).once('value', (postsSnapshot) => {
             let keys = Object.keys(postsSnapshot.val());
-            postsSnapshot.forEach(function(childSnapshot) {
+            postsSnapshot.forEach(function (childSnapshot) {
                 let key = childSnapshot.key
                 fetchSinglePost(key, (model) => {
                     postFetched(model);
@@ -13,10 +13,10 @@ export function fetchLimitedPost(currentKey, initialCount, furtherCount, lastPos
             });
             lastPostId(keys[0]);
         })
-    }else {
+    } else {
         firebase.userFeedRef.orderByKey().limitToLast(furtherCount).once('value', (snapshot) => {
             let keys = Object.keys(snapshot.val());
-            snapshot.forEach(function(childSnapshot) {
+            snapshot.forEach(function (childSnapshot) {
                 let key = childSnapshot.key
                 if (key !== currentKey) {
                     fetchSinglePost(key, (model) => {
@@ -27,12 +27,14 @@ export function fetchLimitedPost(currentKey, initialCount, furtherCount, lastPos
             lastPostId(keys[0]);
         })
     }
- }
+}
 
- export function fetchSinglePost(postId, completion) {
+export function fetchSinglePost(postId, completion) {
     firebase.postsRef.child(postId).once('value', function (snapshot) {
-        let model = new PostModel(postId, snapshot.val());
-        completion(model);
+        if (snapshot.val() !== null) {
+            let model = new PostModel(postId, snapshot.val());
+            completion(model);
+        }
     })
 }
 

@@ -1,38 +1,83 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import './Navbar.css'
 import * as images from '../../../common-files/image-urls';
 import DefaultTextField from '../../DefaultTextField/DefaultTextField'
 import Avatar from '../../Avatar/Avatar';
 import { fetchUser } from '../../../FirebaseFiles/FirebaseFunctions';
 import { currentUserId } from '../../../FirebaseFiles/firebase.js'
+import { Link } from "react-router-dom";
+import CustomButton from "../../CustomButton";
 
-let home = images.homeSelected;
-let msg = images.msgUnsel;
-let heart = images.heartUnselected;
 let logo = images.logo;
 
 function Navbar() {
-    const [owner, setOwner] = useState({});
+    let useStates = {
+        owner: {},
+        homeSelected: true,
+        msgSelected: false,
+        heartSelected: false
+    }
+
+    const [states, setState] = useState(useStates);
+
     useEffect(() => {
         fetchUser(currentUserId, (user) => {
-            setOwner(user);
+            localStorage.setItem('username', user.username);
+            setState(prevState => ({ ...prevState, owner: user }));
         })
     }, []);
+
+    function buttonsTapped(homeSelected = false, msgSelected = false, heartSelected = false) {
+        setState(prevState => ({
+            ...prevState,
+            homeSelected: homeSelected,
+            msgSelected: msgSelected,
+            heartSelected: heartSelected
+        }))
+    }
+
     return (
         <nav className="Navbar flex-center bottom-border">
             <div className="content-view flex-center">
                 <img className="logo" src={logo} alt="" srcSet="" />
                 <DefaultTextField placeholder="Search" value="" />
                 <div className="nav-buttons-div">
-                    <img className="nav-buttons" src={home} alt="" srcSet="" />
-                    <img className="nav-buttons" src={msg} alt="" srcSet="" />
-                    <img className="nav-buttons" src={heart} alt="" srcSet="" />
-                    
-                    <Avatar
-                        borderColor='transparent'
-                        imageUrl={owner.profileImageUrl}
-                        alt={owner.name}
+                    <Link to="/">
+                        <CustomButton
+                            imageSelected={images.homeSelected}
+                            imageUnselected={images.homeUnselected}
+                            selected={states.homeSelected}
+                            onTap={() => buttonsTapped(true)}
+                        />
+                    </Link>
+
+                    <Link to="/chats">
+                        <CustomButton
+                            imageSelected={images.msgSel}
+                            imageUnselected={images.msgUnsel}
+                            selected={states.msgSelected}
+                            onTap={() => buttonsTapped(false, true)}
+                        />
+                    </Link>
+
+                    <CustomButton
+                        imageSelected={images.heartSelectedBlack}
+                        imageUnselected={images.heartUnselected}
+                        selected={states.heartSelected}
+                        isToggle={true}
+                        onTap={() => buttonsTapped(false, true, !states.heartSelected)}
                     />
+
+                    <Link to={`/${localStorage.getItem('username')}`}
+                        onClick={() => buttonsTapped(false, true, false)}>
+                        
+                        <Avatar
+                            borderColor='transparent'
+                            imageUrl={states.owner.profileImageUrl}
+                            alt={states.owner.name}
+                        />
+
+                    </Link>
                 </div>
             </div>
         </nav>

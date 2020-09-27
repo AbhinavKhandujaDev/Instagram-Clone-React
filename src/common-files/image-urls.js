@@ -4,6 +4,7 @@ export const instaIcon = require('../images/instagram-icon.png');
 
 export const heartUnselected = require('../images/heart-unselected.png');
 export const heartSelected = require('../images/heart-selected.png');
+export const heartSelectedBlack = require('../images/heart-selected-black.png');
 
 export const homeSelected = 'https://img.icons8.com/fluent-systems-filled/72/000000/home.png';
 export const homeUnselected = 'https://img.icons8.com/fluent-systems-regular/72/000000/home.png';
