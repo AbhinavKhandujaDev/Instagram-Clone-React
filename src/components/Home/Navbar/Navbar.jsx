@@ -69,7 +69,7 @@ function Navbar() {
                     />
 
                     <Link to={`/${localStorage.getItem('username')}`}
-                        onClick={() => buttonsTapped(false, true, false)}>
+                        onClick={() => buttonsTapped(false, false, false)}>
                         
                         <Avatar
                             borderColor='transparent'
