@@ -65,7 +65,7 @@ function Navbar() {
                         imageUnselected={images.heartUnselected}
                         selected={states.heartSelected}
                         isToggle={true}
-                        onTap={() => buttonsTapped(false, true, !states.heartSelected)}
+                        onTap={() => buttonsTapped(false, false, !states.heartSelected)}
                     />
 
                     <Link to={`/${localStorage.getItem('username')}`}

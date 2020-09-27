@@ -48,6 +48,8 @@ function HomePage() {
 
                     <Route exact path="/chats"> <Chats /> </Route>
 
+                    <Route exact path={`/${localStorage.getItem('username')}`}> <User /> </Route>
+
                 </Switch>
             </Router>
         </div>
@@ -57,6 +59,12 @@ function HomePage() {
 const Chats = () => {
     return (
         <h1 className="chats flex-center">Chats</h1>
+    )
+}
+
+const User = () => {
+    return (
+        <h1 className="chats flex-center">Profile</h1>
     )
 }
 
