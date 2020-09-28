@@ -7,6 +7,7 @@ import { fetchUser } from '../../../FirebaseFiles/FirebaseFunctions';
 import { currentUserId } from '../../../FirebaseFiles/firebase.js'
 import { Link } from "react-router-dom";
 import CustomButton from "../../CustomButton";
+import CustomImageView from '../../CustomImageView'
 
 let logo = images.logo;
 
@@ -21,7 +22,6 @@ function Navbar() {
     const [states, setState] = useState(useStates);
 
     useEffect(() => {
-        console.log('navbar')
         fetchUser(currentUserId, (user) => {
             localStorage.setItem('username', user.username);
             setState(prevState => ({ ...prevState, owner: user }));
@@ -77,6 +77,8 @@ function Navbar() {
                             imageUrl={states.owner.profileImageUrl}
                             alt={states.owner.name}
                         />
+
+                        {/* {CustomImageView(states.owner.profileImageUrl)} */}
 
                     </Link>
                 </div>

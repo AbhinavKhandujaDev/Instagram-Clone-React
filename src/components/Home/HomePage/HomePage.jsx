@@ -10,7 +10,6 @@ import {
     Route
 } from "react-router-dom";
 
-
 let currentKey;
 let initialCount = 1
 let furtherCount = 5
@@ -32,27 +31,22 @@ function HomePage() {
             <Router>
                 <Navbar />
                 <Switch>
-
-                    <Route exact path="/">
-                        <div className="home-content">
-                            <div className="posts flex-center">
-                                {posts.map(e => <Post
-                                    key={e.postId}
-                                    post={e}
-                                    postLiked={(post) => {
-
-                                    }}
-                                />)}
-                            </div>
-                        </div>
-                    </Route>
-
+                    <Route exact path="/"> <HomeFeeds posts={posts} /> </Route>
                     <Route exact path="/chats"> <Chats /> </Route>
-
                     <Route exact path={`/${localStorage.getItem('username')}`}> <Profile /> </Route>
-
                 </Switch>
             </Router>
+        </div>
+    );
+}
+
+const HomeFeeds = (props) => {
+    let {posts} = props;
+    return (
+        <div className="home-content">
+            <div className="posts flex-center">
+                {posts.map(e => <Post key={e.postId} post={e} />)}
+            </div>
         </div>
     );
 }
@@ -61,6 +55,19 @@ const Chats = () => {
     return (
         <h1 className="chats flex-center">Chats</h1>
     )
+}
+
+const ProfileObj = () => {
+    let url = window.location.href;
+    let array = url.split('/');
+    let username = array[array.length - 1];
+    console.log('url ' +url);
+
+    // useEffect(() => {
+        
+    // },[])
+
+    return ( <Profile username={username}/> )
 }
 
 export default React.memo(HomePage)
