@@ -7,8 +7,6 @@ import { userLikesRef, currentUserId } from "../../../FirebaseFiles/firebase.js"
 import { fetchUser } from '../../../FirebaseFiles/FirebaseFunctions'
 import CustomButton from "../../CustomButton";
 
-// let staticImage = "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=689&q=80";
-
 let msg = images.msgUnsel;
 let heartUnsel = images.heartUnselected;
 let heartSel = images.heartSelected;

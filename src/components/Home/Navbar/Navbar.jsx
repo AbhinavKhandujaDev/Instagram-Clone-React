@@ -21,6 +21,7 @@ function Navbar() {
     const [states, setState] = useState(useStates);
 
     useEffect(() => {
+        console.log('navbar')
         fetchUser(currentUserId, (user) => {
             localStorage.setItem('username', user.username);
             setState(prevState => ({ ...prevState, owner: user }));

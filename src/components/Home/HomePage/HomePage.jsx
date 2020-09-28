@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../Navbar/Navbar.jsx';
 import Post from '../Post/Post';
+import Profile from '../Profile/Profile'
 import './HomePage.css';
 import { fetchLimitedPost } from '../../../FirebaseFiles/FirebaseFunctions';
 import {
@@ -48,7 +49,7 @@ function HomePage() {
 
                     <Route exact path="/chats"> <Chats /> </Route>
 
-                    <Route exact path={`/${localStorage.getItem('username')}`}> <User /> </Route>
+                    <Route exact path={`/${localStorage.getItem('username')}`}> <Profile /> </Route>
 
                 </Switch>
             </Router>
@@ -59,12 +60,6 @@ function HomePage() {
 const Chats = () => {
     return (
         <h1 className="chats flex-center">Chats</h1>
-    )
-}
-
-const User = () => {
-    return (
-        <h1 className="chats flex-center">Profile</h1>
     )
 }
 
