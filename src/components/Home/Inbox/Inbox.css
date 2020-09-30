@@ -6,6 +6,7 @@
     background-color:white;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 .Inbox .left-box {
@@ -26,7 +27,7 @@
 }
 
 .Inbox .header {
-    height: 65px;
+    min-height: 65px;
     font-weight: bold;
     margin: 0;
     padding: 0;
@@ -64,18 +65,36 @@
 .Inbox .right-box {
     flex: 1;
     height: 100%;
+    position: relative;
+    display: flex;
+    /* overflow: hidden */
+}
+
+.Inbox .right-container {
+    position: relative;
+    width: 95%;
+    height: 100%;
+    align-self: center;
 }
 
 .Inbox .user-chats {
-    position: relative;
-    display: flex;
-    flex-direction: column
+    /* bottom: auto; */
+    flex: 0.86;
+    overflow-y: scroll;
+    padding-bottom: 20px;
 }
 
 .Inbox .left-box,
-.Inbox .right-box {
+.Inbox .right-box,
+.right-container,
+.user-chats {
     display: flex;
     flex-direction: column;
+}
+
+.Inbox .InputView {
+    max-height: 50px;
+    margin-bottom: 10px;
 }
 
 @media (max-width: 935px) {

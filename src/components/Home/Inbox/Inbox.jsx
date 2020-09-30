@@ -5,7 +5,9 @@ import { staticImage } from '../../../common-files/image-urls'
 import './Inbox.css'
 
 function Inbox() {
-    let [state] = useState("")
+    let [state, setState] = useState({
+        message: ""
+    })
     return (
         <div className="Inbox flex-center default-border-box">
             <div className="left-box right-border">
@@ -30,16 +32,23 @@ function Inbox() {
                     <label>Username</label>
                 </div>
 
-                <div className="user-chats">
-                    <ChatBubble text="hi" isSent={true} />
-                    <ChatBubble text="hi" />
+                <div className="right-container">
+
+                    <div className="user-chats">
+                        {Array.apply(null, Array(25)).map((e, i) =>
+                            <ChatBubble text="hi" isSent={i%2 === 0} />
+                        )}
+                    </div>
+                    <InputView value={state.message} onChange={text => {
+                        setState({...state, message: text})
+                    }}/>
                 </div>
             </div>
         </div>
     )
 }
 
-function ChatBubble(props) {
+let ChatBubble = React.memo((props) => {
     let { text = "", isSent = false } = props
 
     let bgColor = isSent ? '#458eff' : '#EEEEEE';
@@ -52,7 +61,7 @@ function ChatBubble(props) {
         borderRadius: '50px',
         maxWidth: '80%',
         wordWrap: "break-word",
-        margin: '10px'
+        margin: "10px 0"
     }
 
     return (
@@ -62,6 +71,45 @@ function ChatBubble(props) {
             </div>
         </div>
     )
-}
+})
 
-export default Inbox
+let InputView = React.memo((props) => {
+    let {value = "", onChange} = props;
+
+    let style = {
+        padding: '5px 12px',
+        display: 'flex',
+        borderRadius: '25px',
+        overflow: 'hidden'
+    }
+
+    let inputStyle = {
+        padding: '10px',
+        flex: 1,
+        border: 'none'
+    }
+
+    let buttonStyle = {
+        fontWeight: 'bold',
+        fontSize: '14px',
+        flex: 0,
+        margin: '0 5px',
+        cursor: 'pointer',
+        color: value !== "" ? '#458eff' : '#94BFFF'
+    }
+
+    return (
+        <div style={style} className="InputView default-border-box">
+            <input
+                style={inputStyle}
+                type="text"
+                placeholder="Message..."
+                value={value}
+                onChange={e => onChange(e.target.value)}
+            />
+            <div style={buttonStyle}>Send</div>
+        </div>
+    )
+})
+
+export default React.memo(Inbox)
