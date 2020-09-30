@@ -27,6 +27,7 @@ export const userPostsRef = dbref.child("user-posts");
 export const userLikesRef = dbref.child("user-likes");
 export const postLikesRef = dbref.child("post-likes");
 export const userFollowerRef = dbref.child("user-follower");
+export const userFollowingRef = dbref.child("user-following");
 export const commentsRef = dbref.child("comments");
 export const notificationsRef = dbref.child("notifications");
 export const messagesRef = dbref.child("messages");

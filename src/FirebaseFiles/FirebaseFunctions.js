@@ -47,6 +47,7 @@ export function fetchUser(uid, fetched) {
 export function fetchUserByUsername(username, fetched = null) {
     firebase.usersRef.orderByChild("username").equalTo(username).once("value", function (snapshot) {
         let userData = Object.values(snapshot.val())[0];
-        if (fetched != null) { fetched(userData) }
+        let uid = Object.keys(snapshot.val())[0]
+        if (fetched != null) { fetched(uid, userData) }
     });
 }

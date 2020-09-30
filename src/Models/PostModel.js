@@ -1,4 +1,4 @@
-import UserModel from './UserModel';
+import User from './UserModel';
 import { fetchUser } from '../FirebaseFiles/FirebaseFunctions';
 import {
     currentUserId,
@@ -23,7 +23,7 @@ export default class PostModel {
 
         if (this.ownerUid !== null) {
             fetchUser(this.ownerUid, (userData) => {
-                let user = new UserModel(userData);
+                let user = new User(null, userData);
                 this.user = user || null;
             })
         }

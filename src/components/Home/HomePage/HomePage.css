@@ -1,6 +1,6 @@
 .HomePage {
     width: 100%;
-    padding-top: 100px;
+    margin-top: 50px;
 }
 
 .Navbar {
@@ -28,8 +28,8 @@
     margin-bottom: 60px;
 }
 
-.chats {
+/* .chats {
     width: 100px;
     height: 100px;
     background-color:red;
-}
+} */

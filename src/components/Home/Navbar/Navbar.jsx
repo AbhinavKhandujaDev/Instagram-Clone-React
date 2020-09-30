@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Navbar.css'
 import * as images from '../../../common-files/image-urls';
 import DefaultTextField from '../../DefaultTextField/DefaultTextField'
@@ -7,7 +7,6 @@ import { fetchUser } from '../../../FirebaseFiles/FirebaseFunctions';
 import { currentUserId } from '../../../FirebaseFiles/firebase.js'
 import { Link } from "react-router-dom";
 import CustomButton from "../../CustomButton";
-import CustomImageView from '../../CustomImageView'
 
 let logo = images.logo;
 
@@ -52,7 +51,7 @@ function Navbar() {
                         />
                     </Link>
 
-                    <Link to="/chats">
+                    <Link to="/inbox">
                         <CustomButton
                             imageSelected={images.msgSel}
                             imageUnselected={images.msgUnsel}
@@ -77,8 +76,6 @@ function Navbar() {
                             imageUrl={states.owner.profileImageUrl}
                             alt={states.owner.name}
                         />
-
-                        {/* {CustomImageView(states.owner.profileImageUrl)} */}
 
                     </Link>
                 </div>

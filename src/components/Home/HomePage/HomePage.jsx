@@ -9,6 +9,7 @@ import {
     Switch,
     Route
 } from "react-router-dom";
+import Inbox from "../Inbox/Inbox"
 
 let currentKey;
 let initialCount = 1
@@ -32,7 +33,7 @@ function HomePage() {
                 <Navbar />
                 <Switch>
                     <Route exact path="/"> <HomeFeeds posts={posts} /> </Route>
-                    <Route exact path="/chats"> <Chats /> </Route>
+                    <Route exact path="/inbox"> <Inbox /> </Route>
                     <Route exact path={`/${localStorage.getItem('username')}`}> <Profile /> </Route>
                 </Switch>
             </Router>
@@ -43,7 +44,7 @@ function HomePage() {
 const HomeFeeds = (props) => {
     let {posts} = props;
     return (
-        <div className="home-content">
+        <div style={{marginTop: '40px'}} className="home-content">
             <div className="posts flex-center">
                 {posts.map(e => <Post key={e.postId} post={e} />)}
             </div>

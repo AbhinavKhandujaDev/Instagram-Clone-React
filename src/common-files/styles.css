@@ -16,6 +16,18 @@
     border-bottom: 1px solid #dbdbdb;
 }
 
+.right-border {
+    border-right: 1px solid #dbdbdb;
+}
+
+.left-border {
+    border-left: 1px solid #dbdbdb;
+}
+
+.top-border {
+    border-top: 1px solid #dbdbdb;
+}
+
 .flex-center {
     display: flex;
     justify-content: center;
