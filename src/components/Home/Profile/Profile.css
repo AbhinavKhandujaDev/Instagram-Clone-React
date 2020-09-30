@@ -1,0 +1,137 @@
+.Profile {
+    width: 100%;
+    height: 100%;
+    padding: 0 15px;
+    max-width: 935px;
+    padding-bottom: 20px;
+}
+
+.Profile .Avatar {
+    width: 150px;
+    height: 150px;
+}
+
+.Profile .profile-detail {
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.Profile .spacer {
+    width: 30px;
+    min-width: 30px
+}
+
+.Profile .right-details {
+    flex: 1;
+    justify-content: wrap;
+}
+
+.Profile #username {
+    font-size: 28px;
+    display: block;
+}
+
+
+.Profile .posts-grid {
+    margin-top: 20px;
+    width: 100%;
+    display: grid;
+    grid-gap: 28px;
+    grid-template-columns: auto auto auto;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Profile .posts-grid div {
+    position: relative;
+    align-self: center;
+    padding-top:100%;
+    display: flex;
+    flex: column;
+}
+
+.Profile .posts-grid .post-image {
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    object-fit: cover;   
+}
+
+/* ****************** Post, Followers, Following styling ****************** */
+
+.Profile .ActivityDetail {
+    display: inline-flex;
+    margin-top: 10px
+}
+
+.Profile .ActivityDetail .count-box {
+    display: inline-flex;
+    margin-right: 20px;
+}
+
+.Profile .ActivityDetail .detail {
+    font-weight: bold;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.Profile .detail2 {
+    position: absolute;
+    z-index: -1;
+}
+
+@media only screen and (max-width: 736px) {
+    .Profile {
+        padding: 0;
+    }
+
+    .Profile .Avatar {
+        width: 77px;
+        min-width: 77px;
+        height: 77px;
+    }
+    .Profile .detail1 * {
+        width: 0;
+        position: absolute;
+        z-index: -1;
+    }
+    .Profile .profile-detail {
+        flex: none;
+        padding: 15px;
+    }
+
+    .Profile .posts-grid {
+        grid-gap: 3px;
+    }
+
+    /* ****************** Post, Followers, Following styling ****************** */
+    .Profile .detail2 {
+        position: relative;
+        z-index: 0;
+    }
+    .Profile .ActivityDetail {
+        display:flex;
+        position: relative;
+        width: 100%;
+        justify-content:space-between;
+    }
+    .Profile .ActivityDetail .count-box {
+        display: block;
+        margin-right: 20px;
+        text-align: center;
+        width: 33.333%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .Profile .ActivityDetail .detail {
+        width: 100%;
+        display: block;
+    }
+
+    .Profile .ActivityDetail .title {
+        color:#8e8e8e;
+        font-weight: 500;
+    }
+}

@@ -1,0 +1,94 @@
+.Inbox {
+    position: relative;
+    width: 90vw;
+    max-width: 935px;
+    align-items: start;
+    background-color:white;
+    margin: 0;
+    padding: 0;
+}
+
+.Inbox .left-box {
+    position: relative;
+    width: 300px;
+    height: 100%;
+}
+
+.Inbox .user-chat-list {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    font-weight: 500;
+}
+
+.Inbox .user-chat-list .Avatar {
+    margin-right: 20px;
+}
+
+.Inbox .header {
+    height: 65px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.Inbox .user-chat-detail {
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Inbox .last-chat-time {
+    font-size: 12px;
+    color:rgb(116, 116, 116)
+}
+
+.Inbox .left-box .header .edit-image {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    right: 20px;
+}
+
+.Inbox .user-list, .Inbox .user-chats {
+    flex: 1;
+    width: 100%;
+}
+
+.Inbox .user-list {
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.Inbox .right-box {
+    flex: 1;
+    height: 100%;
+}
+
+.Inbox .user-chats {
+    position: relative;
+    display: flex;
+    flex-direction: column
+}
+
+.Inbox .left-box,
+.Inbox .right-box {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 935px) {
+    .Inbox {
+        margin: 0;
+        width: 100vw;
+        height: 92.5vh;
+    }
+}
+
+@media (min-width: 935px) {
+    .Inbox {
+        height: 80vh;
+        margin-top: 40px
+    }
+}
