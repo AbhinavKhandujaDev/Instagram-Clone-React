@@ -6,22 +6,20 @@ import './Inbox.css'
 import Message from '../../../Models/Message.js'
 import User from '../../../Models/UserModel.js'
 import { UserListItem, ChatBubble, InputView, NoChatView, ChatList } from './InboxViewComponents'
+import Modal from '../../Modal/Modal'
 
 function Inbox() {
     let [state, setState] = useState({
         message: "",
         userSelected: {},
         usersChatted: [],
-        userChats: []
+        userChats: [],
+        showPopup: false
     })
-
-    let chats = useMemo(() => {
-        return state.userChats
-    }, [state.userChats])
 
     function getChats(selUser) {
         let chats = []
-        
+
         // fetch user messages id
         userMessagesRef.child(currentUserId).child(selUser.uid).on('child_added', (msgesSs) => {
 
@@ -75,7 +73,7 @@ function Inbox() {
             <div className="left-box right-border">
                 <div className="header bottom-border flex-center">
                     <label>Direct</label>
-                    <img className="edit-image" src={edit} alt="" />
+                    <img onClick={(() => setState({ ...state, showPopup: true }))} className="edit-image" src={edit} alt="" />
                 </div>
                 <div className="user-list">
                     {state.usersChatted.map(e =>
@@ -99,7 +97,7 @@ function Inbox() {
 
                         <div className="right-container">
                             <ChatList
-                                chats={chats}
+                                chats={state.userChats}
                                 currentUserId={currentUserId}
                             />
 
@@ -114,6 +112,11 @@ function Inbox() {
                         </div>
                     </>}
             </div>
+            {state.showPopup ? <Modal
+                backgroundTapped={() => setState({ ...state, showPopup: false })}
+                view={() => {
+                    return <NoChatView />
+                }} /> : null}
         </div>
     )
 }

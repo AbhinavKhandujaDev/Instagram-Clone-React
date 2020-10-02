@@ -88,7 +88,7 @@ export let InputView = React.memo((props) => {
     )
 })
 
-export let NoChatView = () => {
+export let NoChatView = React.memo(() => {
 
     let style = {
         display: "flex",
@@ -96,7 +96,8 @@ export let NoChatView = () => {
         justifyContent: "center",
         alignItems: "center",
         flex: 1,
-        textAlign: "center"
+        textAlign: "center",
+        backgroundColor: 'white'
     }
 
     let imageStyle = {
@@ -111,7 +112,7 @@ export let NoChatView = () => {
             <label> Send private photos and messages to a friend or group. </label>
         </div>
     )
-}
+})
 
 export let ChatList = props => {
     let { chats, currentUserId } = props

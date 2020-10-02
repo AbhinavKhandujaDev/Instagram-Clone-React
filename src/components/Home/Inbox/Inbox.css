@@ -35,6 +35,10 @@
     right: 20px;
 }
 
+.Inbox .edit-image {
+    cursor: pointer;
+}
+
 .Inbox .user-list, .Inbox .ChatList {
     flex: 1;
     width: 100%;

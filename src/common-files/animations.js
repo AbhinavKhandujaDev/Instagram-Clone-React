@@ -25,3 +25,16 @@ export function bubble(element, expand = 1.3, duration = 200, iterations = 1) {
         easing:"ease-in-out"
     });
 }
+
+export function zoom(element, scaleBefore = 1.2, scaleAfter = 1, duration = 100, iterations = 1 ) {
+    let transitions = [
+        { transform: `scale(${scaleBefore})`},
+        { transform: `scale(${scaleAfter})`}
+    ]
+    element.animate(transitions, {
+        duration: duration,
+        iterations: iterations,
+        fill: "forwards",
+        easing:"ease-in-out"
+    });
+}
