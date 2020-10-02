@@ -3,7 +3,7 @@
     width: 90vw;
     max-width: 935px;
     align-items: start;
-    background-color:white;
+    background-color: white;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -15,17 +15,6 @@
     height: 100%;
 }
 
-.Inbox .user-chat-list {
-    display: flex;
-    align-items: center;
-    margin: 10px;
-    font-weight: 500;
-}
-
-.Inbox .user-chat-list .Avatar {
-    margin-right: 20px;
-}
-
 .Inbox .header {
     min-height: 65px;
     font-weight: bold;
@@ -34,15 +23,9 @@
     width: 100%;
 }
 
-.Inbox .user-chat-detail {
-    height: 30px;
-    display: flex;
-    flex-direction: column;
-}
-
 .Inbox .last-chat-time {
     font-size: 12px;
-    color:rgb(116, 116, 116)
+    color: rgb(116, 116, 116)
 }
 
 .Inbox .left-box .header .edit-image {
@@ -52,7 +35,7 @@
     right: 20px;
 }
 
-.Inbox .user-list, .Inbox .user-chats {
+.Inbox .user-list, .Inbox .ChatList {
     flex: 1;
     width: 100%;
 }
@@ -62,39 +45,35 @@
     overflow-y: scroll;
 }
 
+.Inbox .left-box, .Inbox .right-box, .right-container, .ChatList {
+    display: flex;
+    flex-direction: column;
+}
+
 .Inbox .right-box {
     flex: 1;
     height: 100%;
     position: relative;
     display: flex;
-    /* overflow: hidden */
+    justify-content: start;
 }
 
 .Inbox .right-container {
-    position: relative;
+    flex: 1;
     width: 95%;
-    height: 100%;
     align-self: center;
 }
 
-.Inbox .user-chats {
-    /* bottom: auto; */
-    flex: 0.86;
+.Inbox .ChatList {
     overflow-y: scroll;
-    padding-bottom: 20px;
+    max-height: 83%;
+    min-height: 83%;
+    align-self: center;
+    flex: 1;
 }
 
-.Inbox .left-box,
-.Inbox .right-box,
-.right-container,
-.user-chats {
-    display: flex;
-    flex-direction: column;
-}
-
-.Inbox .InputView {
-    max-height: 50px;
-    margin-bottom: 10px;
+.Inbox .UserListItem:hover {
+    background-color: #FAFAFA
 }
 
 @media (max-width: 935px) {
@@ -102,6 +81,10 @@
         margin: 0;
         width: 100vw;
         height: 92.5vh;
+    }
+    .Inbox .ChatList {
+        max-height: 90%;
+        min-height: 90%;
     }
 }
 

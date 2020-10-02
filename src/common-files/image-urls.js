@@ -14,8 +14,8 @@ export const heartSelectedBlack = require('../images/heart-selected-black.png');
 export const homeSelected = 'https://img.icons8.com/fluent-systems-filled/72/000000/home.png';
 export const homeUnselected = 'https://img.icons8.com/fluent-systems-regular/72/000000/home.png';
 
-export const msgSel = require('../images/message-selected.png');
-export const msgUnsel = require('../images/message-unselected.png');
+export const msgSel = require('../images/inbox-selected.png');
+export const msgUnsel = require('../images/inbox-unselected.png');
 
 export const comment = "https://img.icons8.com/ios/72/000000/topic.png";
 

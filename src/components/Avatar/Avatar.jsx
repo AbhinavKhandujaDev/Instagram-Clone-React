@@ -9,10 +9,11 @@ function Avatar(props) {
         color: `${altTextColor || "white"}`
     }
     let altname = alt !== undefined ? alt.split("")[0].toUpperCase() : "U"
+
     return (
         <div className="Avatar" style={style}>
             {
-                imageUrl !== undefined ? <img src={imageUrl} alt={altname} srcSet="" /> 
+                imageUrl !== undefined ?  <img src={imageUrl} alt={altname} srcSet="" /> 
                 : <div className="alt-div">{altname}</div>
             }
         </div>

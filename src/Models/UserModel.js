@@ -13,7 +13,7 @@ let followUnfollow =  {
 }
 
 export default class UserModel {
-    constructor(uid = null, snapshot) {
+    constructor(uid = null, snapshot = {}) {
         this.name =  snapshot.name;
         this.username =  snapshot.username;
         this.profileImageUrl =  snapshot.profileImageUrl;
@@ -23,7 +23,6 @@ export default class UserModel {
     }    
 
     follow(done) {
-        let id = this.uid;
         dbref.child(followUnfollow.following).child(currentUserId).update({id: 1}, error => {
             if (error !== null) {
                 done(false);
