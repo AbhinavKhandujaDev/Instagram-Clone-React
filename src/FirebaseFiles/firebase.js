@@ -42,3 +42,9 @@ export const commentIntValue = 1
 export const followIntValue = 2
 export const commentMentionIntValue = 3
 export const postMentionIntValue = 4
+
+export const getPathName = () => {
+  let url = window.location.href;
+  let array = url.split('/');
+  return array[array.length - 1];
+}

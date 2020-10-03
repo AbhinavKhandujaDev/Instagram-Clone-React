@@ -97,7 +97,9 @@ export let NoChatView = React.memo(() => {
         alignItems: "center",
         flex: 1,
         textAlign: "center",
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        height: "100%",
+        padding: '0 30px'
     }
 
     let imageStyle = {
@@ -117,8 +119,13 @@ export let NoChatView = React.memo(() => {
 export let ChatList = props => {
     let { chats, currentUserId } = props
 
+    let style = {
+        display: 'flex',
+        flexDirection: 'column'
+    }
+
     return (
-        <div className="ChatList">
+        <div style={style} className="ChatList">
             {chats.map(e =>
                 <ChatBubble
                     key={e.messageId}
@@ -130,28 +137,6 @@ export let ChatList = props => {
     )
 }
 
-// export let ChatList = props => {
-//     let { currentUserId, getChats } = props
-
-//     let [chats, setChats] = useState([])
-
-//     useEffect(() => {
-//         setChats(getChats)
-//     }, getChats)
-
-//     return (
-//         <div className="ChatList">
-//             {chats.map(e =>
-//                 <ChatBubble
-//                     key={e.messageId}
-//                     text={e.messageText}
-//                     isSent={e.fromId === currentUserId}
-//                 />
-//             )}
-//         </div>
-//     )
-// }
-
 export let ChatBubble = React.memo((props) => {
     let { text = "", isSent = false } = props
 
@@ -161,17 +146,20 @@ export let ChatBubble = React.memo((props) => {
         backgroundColor: bgColor,
         float: isSent ? 'right' : 'left',
         color: isSent ? 'white' : '#212121',
-        padding: '12px 15px',
+        // padding: '10px 30px',
+        padding: '5px',
         borderRadius: '50px',
         maxWidth: '80%',
         wordWrap: "break-word",
-        margin: "10px 0"
+        margin: "10px 0",
+        textAlign: 'justify',
+        maxWidth: '60%'
     }
 
     return (
         <div className="ChatBubble">
             <div style={bubbleBg}>
-                <label style={{ display: 'block', padding: '3px' }}> {text} </label>
+                <label style={{ display: 'block', padding: '10px 20px' }}> {text} </label>
             </div>
         </div>
     )

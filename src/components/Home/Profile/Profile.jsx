@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Avatar from '../../Avatar/Avatar';
 import './Profile.css';
-import { userFollowerRef, userFollowingRef, userPostsRef } from '../../../FirebaseFiles/firebase.js';
+import { userFollowerRef, userFollowingRef, userPostsRef, getPathName } from '../../../FirebaseFiles/firebase.js';
 import { fetchUserByUsername, fetchLimitedPost } from '../../../FirebaseFiles/FirebaseFunctions';
 import User from '../../../Models/UserModel'
 
@@ -16,17 +16,13 @@ function Profile() {
     let [user, setUser] = useState(userDet);
     let [posts, setPosts] = useState([]);
 
-    let url = window.location.href;
-    let array = url.split('/');
-    let username = array[array.length - 1];
-
     let currentKey;
     let initialCount = 10
     let furtherCount = 5
 
     useEffect(() => {
         //fetching user by username
-        fetchUserByUsername(username, (uid, userData) => {
+        fetchUserByUsername(getPathName(), (uid, userData) => {
             let fetcheduser = new User(uid, userData);
             userDet['details'] = fetcheduser
 

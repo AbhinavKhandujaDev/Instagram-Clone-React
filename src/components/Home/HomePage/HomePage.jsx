@@ -31,20 +31,22 @@ function HomePage() {
         <div className="HomePage flex-center">
             <Router>
                 <Navbar />
-                <Switch>
-                    <Route exact path="/"> <HomeFeeds posts={posts} /> </Route>
-                    <Route exact path="/inbox"> <Inbox /> </Route>
-                    <Route exact path={`/${localStorage.getItem('username')}`}> <Profile /> </Route>
-                </Switch>
+                <div className="main flex-center">
+                    <Switch>
+                        <Route exact path="/"> <HomeFeeds posts={posts} /> </Route>
+                        <Route exact path="/inbox"> <Inbox /> </Route>
+                        <Route exact path={`/${localStorage.getItem('username')}`}> <Profile /> </Route>
+                    </Switch>
+                </div>
             </Router>
         </div>
     );
 }
 
 const HomeFeeds = (props) => {
-    let {posts} = props;
+    let { posts } = props;
     return (
-        <div style={{marginTop: '40px'}} className="home-content">
+        <div style={{ marginTop: '80px' }} className="home-content">
             <div className="posts flex-center">
                 {posts.map(e => <Post key={e.postId} post={e} />)}
             </div>
@@ -62,13 +64,13 @@ const ProfileObj = () => {
     let url = window.location.href;
     let array = url.split('/');
     let username = array[array.length - 1];
-    console.log('url ' +url);
+    console.log('url ' + url);
 
     // useEffect(() => {
-        
+
     // },[])
 
-    return ( <Profile username={username}/> )
+    return (<Profile username={username} />)
 }
 
 export default React.memo(HomePage)

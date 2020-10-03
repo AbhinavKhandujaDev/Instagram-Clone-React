@@ -4,7 +4,7 @@ import './Modal.css'
 import { zoom } from '../../common-files/animations.js'
 
 function Modal(props) {
-    let { view = null, backgroundTapped = (() => { }), width = '300px', height = '300px' } = props
+    let { view = null, backgroundTapped = (() => { }), width = 'auto', height = 'auto' } = props
 
     let modalStyle = {
         width: '100vw',

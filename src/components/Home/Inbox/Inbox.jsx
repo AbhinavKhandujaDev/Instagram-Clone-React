@@ -30,7 +30,7 @@ function Inbox() {
                 chats.push(msg)
                 setState(prevState => ({ ...prevState, userSelected: selUser, userChats: chats }))
                 var objDiv = document.getElementsByClassName('ChatList')[0];
-                if (objDiv !== null) {
+                if (objDiv !== undefined) {
                     objDiv.scrollTop = objDiv.scrollHeight;
                 }
             })
@@ -69,11 +69,15 @@ function Inbox() {
     }, [])
 
     return (
+
         <div className="Inbox flex-center default-border-box">
-            <div className="left-box right-border">
+            <div className="left-box right-border flex-center">
                 <div className="header bottom-border flex-center">
                     <label>Direct</label>
-                    <img onClick={(() => setState({ ...state, showPopup: true }))} className="edit-image" src={edit} alt="" />
+                    <img
+                        onClick={(() => setState({ ...state, showPopup: true }))}
+                        className="edit-image" src={edit} alt=""
+                    />
                 </div>
                 <div className="user-list">
                     {state.usersChatted.map(e =>
@@ -89,13 +93,13 @@ function Inbox() {
             </div>
 
             <div className="right-box">
-                {JSON.stringify(state.userSelected) === JSON.stringify({}) ? <NoChatView />
-                    : <>
+                {JSON.stringify(state.userSelected) === JSON.stringify({}) ? <NoChatView /> :
+                    <>
                         <div className="header bottom-border flex-center">
                             <label>{state.userSelected.username}</label>
                         </div>
 
-                        <div className="right-container">
+                        <div className="chat-view">
                             <ChatList
                                 chats={state.userChats}
                                 currentUserId={currentUserId}
@@ -110,7 +114,8 @@ function Inbox() {
                                 }}
                             />
                         </div>
-                    </>}
+                    </>
+                }
             </div>
             {state.showPopup ? <Modal
                 backgroundTapped={() => setState({ ...state, showPopup: false })}

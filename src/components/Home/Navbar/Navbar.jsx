@@ -4,17 +4,20 @@ import * as images from '../../../common-files/image-urls';
 import DefaultTextField from '../../DefaultTextField/DefaultTextField'
 import Avatar from '../../Avatar/Avatar';
 import { fetchUser } from '../../../FirebaseFiles/FirebaseFunctions';
-import { currentUserId } from '../../../FirebaseFiles/firebase.js'
+import { currentUserId, getPathName } from '../../../FirebaseFiles/firebase.js'
 import { Link } from "react-router-dom";
 import CustomButton from "../../CustomButton";
 
 let logo = images.logo;
 
+
+
 function Navbar() {
+    let path = getPathName()
     let useStates = {
         owner: {},
-        homeSelected: true,
-        msgSelected: false,
+        homeSelected: path == 'home',
+        msgSelected: path == 'inbox',
         heartSelected: false
     }
 
