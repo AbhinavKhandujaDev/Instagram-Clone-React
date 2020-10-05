@@ -1,107 +1,3 @@
-/* .Inbox {
-    position: relative;
-    width: 90vw;
-    max-width: 935px;
-    align-items: start;
-    background-color: white;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    height: 100%;
-}
-
-.Inbox .left-box {
-    position: relative;
-    width: 300px;
-    height: 100%;
-}
-
-.Inbox .header {
-    min-height: 65px;
-    font-weight: bold;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-.Inbox .last-chat-time {
-    font-size: 12px;
-    color: rgb(116, 116, 116)
-}
-
-.Inbox .left-box .header .edit-image {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    right: 20px;
-}
-
-.Inbox .edit-image {
-    cursor: pointer;
-}
-
-.Inbox .user-list, .Inbox .ChatList {
-    flex: 1;
-    width: 100%;
-}
-
-.Inbox .user-list {
-    overflow: hidden;
-}
-
-.Inbox .left-box, .Inbox .right-box, .right-container, .ChatList {
-    display: flex;
-    flex-direction: column;
-}
-
-.Inbox .right-box {
-    position: relative;
-    flex: 1;
-    height: 100%;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-}
-
-.Inbox .right-container {
-    flex: 1;
-    width: 100%;
-    padding: 0 10px;
-    background-color:red;
-}
-
-.Inbox .ChatList {
-    background-color:yellow;
-    height: 10px;
-}
-
-.Inbox .UserListItem:hover {
-    background-color: #FAFAFA
-}
-
-.Inbox .InputView {
-    display: absolute;
-}
-
-@media (max-width: 935px) {
-    .Inbox {
-        margin: 0;
-        width: 100vw;
-        height: 92.5vh;
-    }
-    .Inbox .ChatList {
-        max-height: 90%;
-        min-height: 90%;
-    }
-}
-
-@media (min-width: 935px) {
-    .Inbox {
-        height: 80vh;
-        margin-top: 40px
-    }
-} */
-
 .Inbox {
     width: 80%;
     max-width: 935px;
@@ -133,12 +29,17 @@
     height: 100%;
     flex-direction: column;
     align-items: start;
+    overflow-x: hidden;
 }
 
 .Inbox .user-list {
     flex: 1;
     overflow-y: 'scroll';
     width: 100%;
+}
+
+.Inbox .UserListItem:hover {
+    background-color: #FAFAFA
 }
 
 .Inbox .right-box {
@@ -159,8 +60,8 @@
     margin-bottom: 20px;
 }
 
-.Inbox .UserListItem:hover {
-    background-color: #FAFAFA
+.Inbox .ChatList::-webkit-scrollbar {
+    display: none;
 }
 
 .Inbox .InputView {

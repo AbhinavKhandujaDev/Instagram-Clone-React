@@ -7,6 +7,11 @@ export const logo = require('../images/instagram-logo.png');
 
 export const instaIcon = require('../images/instagram-icon.png');
 
+export const cross = require('../images/cross.png');
+
+export const infoUnselected = require('../images/info-unselected.png');
+export const infoSelected = require('../images/info-selected.png');
+
 export const heartUnselected = require('../images/heart-unselected.png');
 export const heartSelected = require('../images/heart-selected.png');
 export const heartSelectedBlack = require('../images/heart-selected-black.png');

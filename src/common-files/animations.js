@@ -26,7 +26,7 @@ export function bubble(element, expand = 1.3, duration = 200, iterations = 1) {
     });
 }
 
-export function zoom(element, scaleBefore = 1.2, scaleAfter = 1, duration = 100, iterations = 1 ) {
+export function zoom(element, scaleBefore = 1, scaleAfter = 0.8, duration = 60, iterations = 1 ) {
     let transitions = [
         { transform: `scale(${scaleBefore})`},
         { transform: `scale(${scaleAfter})`}

@@ -11,6 +11,11 @@ export let UserListItem = React.memo((props) => {
         padding: "10px",
         fontWeight: 500,
         cursor: "pointer",
+        width: "100%",
+
+        "&:hover": {
+            backgroundColor: "#FAFAFA"
+        }
     };
 
     if (isSelected) {
@@ -34,7 +39,7 @@ export let UserListItem = React.memo((props) => {
     }
 
     return (
-        <div onClick={ !isSelected ? onTap : null} style={itemStyle} className="UserListItem">
+        <div onClick={!isSelected ? (() => onTap()) : null} style={itemStyle} className="UserListItem">
             <Avatar imageUrl={user.profileImageUrl} borderColor="transparent" />
             <div style={chatDetailStyle} className="user-chat-detail">
                 <label style={{ cursor: 'pointer' }}>{user.username}</label>
@@ -146,14 +151,12 @@ export let ChatBubble = React.memo((props) => {
         backgroundColor: bgColor,
         float: isSent ? 'right' : 'left',
         color: isSent ? 'white' : '#212121',
-        // padding: '10px 30px',
         padding: '5px',
         borderRadius: '50px',
         maxWidth: '80%',
         wordWrap: "break-word",
         margin: "10px 0",
-        textAlign: 'justify',
-        maxWidth: '60%'
+        textAlign: 'justify'
     }
 
     return (

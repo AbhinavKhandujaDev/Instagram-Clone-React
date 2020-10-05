@@ -7,3 +7,10 @@ export const addImage = (key = null,val = null) => {
         value: val
     }
 };
+
+export const showPopup = (val) => {
+    return {
+        type: name.popup,
+        value: val
+    }
+};

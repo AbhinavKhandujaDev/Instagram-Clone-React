@@ -16,6 +16,6 @@ export default class Message {
 
     getChatPartnerId() {
         if (currentUserId == null) {return null;}
-        return (this.fromId == currentUserId) ? this.toId : this.fromId;
+        return (this.fromId === currentUserId) ? this.toId : this.fromId;
     }
 }

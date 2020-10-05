@@ -1,12 +1,13 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { edit } from '../../../common-files/image-urls'
 import { currentUserId, userMessagesRef, messagesRef } from '../../../FirebaseFiles/firebase.js'
 import { fetchUser } from '../../../FirebaseFiles/FirebaseFunctions'
 import './Inbox.css'
 import Message from '../../../Models/Message.js'
 import User from '../../../Models/UserModel.js'
-import { UserListItem, ChatBubble, InputView, NoChatView, ChatList } from './InboxViewComponents'
+import { UserListItem, InputView, NoChatView, ChatList } from './InboxViewComponents'
 import Modal from '../../Modal/Modal'
+import AddChatView from './AddChatView/AddChatView'
 
 function Inbox() {
     let [state, setState] = useState({
@@ -14,7 +15,12 @@ function Inbox() {
         userSelected: {},
         usersChatted: [],
         userChats: [],
-        showPopup: false
+        showPopup: false,
+        info: false
+    })
+
+    let addChatCrossTapped = useCallback(() => {
+        setState({ ...state, showPopup: false })
     })
 
     function getChats(selUser) {
@@ -118,9 +124,16 @@ function Inbox() {
                 }
             </div>
             {state.showPopup ? <Modal
-                backgroundTapped={() => setState({ ...state, showPopup: false })}
+                backgroundTapped={() =>
+                    setState({ ...state, showPopup: false })
+                }
                 view={() => {
-                    return <NoChatView />
+                    return <AddChatView
+                        userTapped = {(user) => {
+                            console.log(user)
+                        }}
+                        closeTapped={() => {addChatCrossTapped()} }
+                    />
                 }} /> : null}
         </div>
     )

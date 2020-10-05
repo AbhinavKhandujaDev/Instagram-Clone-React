@@ -1,8 +1,9 @@
-import {imageReducer} from './Reducers.js'
+import {imageReducer, popupReducer} from './Reducers.js'
 import {combineReducers} from 'redux'
 
 const allReducers = combineReducers({
-    images: imageReducer
+    images: imageReducer,
+    popup: popupReducer
 })
 
 export default allReducers;

@@ -6,3 +6,7 @@ export const imageReducer = (state = {}, action) => {
         default: return state;
     }
 };
+
+export const popupReducer = (state = false, action) => {
+    return action.value
+}

@@ -16,8 +16,8 @@ function Navbar() {
     let path = getPathName()
     let useStates = {
         owner: {},
-        homeSelected: path == 'home',
-        msgSelected: path == 'inbox',
+        homeSelected: path === '',
+        msgSelected: path === 'inbox',
         heartSelected: false
     }
 

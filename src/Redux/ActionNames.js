@@ -1,5 +1,6 @@
 const actionNames = {
-    image: "IMAGE"
+    image: "IMAGE",
+    popup: 'POPUP'
 }
 
 export default actionNames;
