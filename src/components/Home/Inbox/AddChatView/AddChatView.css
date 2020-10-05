@@ -1,0 +1,38 @@
+.AddChatView {
+    width: 480px;
+    height: 480px;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    overflow: hidden
+}
+
+.AddChatView .header {
+    width: 92%;
+    height: 50px;
+    padding: 0 20px;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.AddChatView #cross {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.AddChatView .user-list {
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    width: 100%;
+    flex: 1;
+    overflow-y: scroll;
+}
+
+.AddChatView .UserListItem:hover {
+    background-color: #FAFAFA
+}
