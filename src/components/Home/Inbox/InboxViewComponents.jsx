@@ -39,7 +39,9 @@ export let UserListItem = React.memo((props) => {
     }
 
     return (
-        <div onClick={!isSelected ? (() => onTap()) : null} style={itemStyle} className="UserListItem">
+        <div onClick={!isSelected ? (() => {
+            onTap()
+        }) : null} style={itemStyle} className="UserListItem">
             <Avatar imageUrl={user.profileImageUrl} borderColor="transparent" />
             <div style={chatDetailStyle} className="user-chat-detail">
                 <label style={{ cursor: 'pointer' }}>{user.username}</label>

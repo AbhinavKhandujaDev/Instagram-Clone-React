@@ -52,8 +52,15 @@
     background-color: rgba(0, 0, 0, 0.495);
     bottom: -10%;
     opacity: 0;
-    animation: 1s ease-in reverse both popup;;
+    animation: 1s ease-in reverse both popup;
+    ;
     z-index: 10;
+}
+
+.back-shadow {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.474)
 }
 
 @keyframes popup {

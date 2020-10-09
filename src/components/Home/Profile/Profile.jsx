@@ -5,6 +5,10 @@ import { userFollowerRef, userFollowingRef, userPostsRef, getPathName } from '..
 import { fetchUserByUsername, fetchLimitedPost } from '../../../FirebaseFiles/FirebaseFunctions';
 import User from '../../../Models/UserModel'
 
+let currentKey;
+let initialCount = 10
+let furtherCount = 5
+
 function Profile() {
     let userDet = {
         details: {},
@@ -15,10 +19,6 @@ function Profile() {
 
     let [user, setUser] = useState(userDet);
     let [posts, setPosts] = useState([]);
-
-    let currentKey;
-    let initialCount = 10
-    let furtherCount = 5
 
     useEffect(() => {
         //fetching user by username

@@ -28,16 +28,6 @@ function Post(prop) {
     const { post } = prop;
 
     useEffect(() => {
-        // let arr = post.caption.split(' ');
-        // arr.forEach((e, i) => {
-        //     if (e.trim().startsWith('#')) { 
-        //         // e.replace(e, `<span class="tag">${e}<span>`)
-        //         arr[i] = e.replace(/#/g, `<span class="tag">${e}<span>`);
-        //         console.log('e '+arr[i]);
-        //     }
-        // })
-        // post.caption = arr.join(' ');
-        // console.log(post);
         fetchUser(post.ownerUid, (user) => {
             userLikesRef.child(currentUserId).once('value', (ss) => { //checks if User has liked post
                 post.didLike = ss.hasChild(post.postId);

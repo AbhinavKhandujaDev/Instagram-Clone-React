@@ -18,6 +18,7 @@ function CustomButton(props) {
                     onTap(isSelected);
                 }
             }}
+            alt=""
         />
     )
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 import { edit } from '../../../common-files/image-urls'
 import { currentUserId, userMessagesRef, messagesRef } from '../../../FirebaseFiles/firebase.js'
 import { fetchUser } from '../../../FirebaseFiles/FirebaseFunctions'
@@ -6,7 +6,6 @@ import './Inbox.css'
 import Message from '../../../Models/Message.js'
 import User from '../../../Models/UserModel.js'
 import { UserListItem, InputView, NoChatView, ChatList } from './InboxViewComponents'
-import Modal from '../../Modal/Modal'
 import AddChatView from './AddChatView/AddChatView'
 
 function Inbox() {
@@ -15,12 +14,8 @@ function Inbox() {
         userSelected: {},
         usersChatted: [],
         userChats: [],
-        showPopup: false,
+        popup: false,
         info: false
-    })
-
-    let addChatCrossTapped = useCallback(() => {
-        setState({ ...state, showPopup: false })
     })
 
     function getChats(selUser) {
@@ -81,7 +76,7 @@ function Inbox() {
                 <div className="header bottom-border flex-center">
                     <label>Direct</label>
                     <img
-                        onClick={(() => setState({ ...state, showPopup: true }))}
+                        onClick={() => setState({ ...state, popup: true })}
                         className="edit-image" src={edit} alt=""
                     />
                 </div>
@@ -123,18 +118,8 @@ function Inbox() {
                     </>
                 }
             </div>
-            {state.showPopup ? <Modal
-                backgroundTapped={() =>
-                    setState({ ...state, showPopup: false })
-                }
-                view={() => {
-                    return <AddChatView
-                        userTapped = {(user) => {
-                            console.log(user)
-                        }}
-                        closeTapped={() => {addChatCrossTapped()} }
-                    />
-                }} /> : null}
+
+            {state.popup ? <AddChatView userTapped={(user) => {console.log(user)}} closeTapped={() => setState({...state, popup: false})}/> : null}
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '../Navbar/Navbar.jsx';
 import Post from '../Post/Post';
 import Profile from '../Profile/Profile'
@@ -11,16 +11,17 @@ import {
 } from "react-router-dom";
 import Inbox from "../Inbox/Inbox"
 
-let currentKey;
 let initialCount = 1
 let furtherCount = 5
 
 function HomePage() {
     const [posts, setPosts] = useState([]);
+    let currentKey = useRef(null)
+
     useEffect(() => {
         let all = []
-        fetchLimitedPost(currentKey, initialCount, furtherCount, (lastPostKey) => {
-            currentKey = lastPostKey
+        fetchLimitedPost(currentKey.current, initialCount, furtherCount, (lastPostKey) => {
+            currentKey.current = lastPostKey
         }, (post) => {
             all.push(post);
             if (all.length === initialCount) { setPosts(posts.concat(all)) }
@@ -52,25 +53,6 @@ const HomeFeeds = (props) => {
             </div>
         </div>
     );
-}
-
-const Chats = () => {
-    return (
-        <h1 className="chats flex-center">Chats</h1>
-    )
-}
-
-const ProfileObj = () => {
-    let url = window.location.href;
-    let array = url.split('/');
-    let username = array[array.length - 1];
-    console.log('url ' + url);
-
-    // useEffect(() => {
-
-    // },[])
-
-    return (<Profile username={username} />)
 }
 
 export default React.memo(HomePage)

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import '../LoginView/LoginView.css';
 import DefaultTextField from '../../DefaultTextField/DefaultTextField';
 import DefButton from '../../DefButton/DefButton'
-import { firebase } from "../../../FirebaseFiles/firebase";
 
 function SignUpView() {
     const [values, setState] = useState({
@@ -18,7 +17,7 @@ function SignUpView() {
                 <p>Sign up to see photos and videos from your friends.</p>
 
                 <div className="fb-login flex-center">
-                    <img src="https://img.icons8.com/fluent/24/000000/facebook-new.png" />
+                    <img src="https://img.icons8.com/fluent/24/000000/facebook-new.png" alt=""/>
                 Login with Facebook
             </div>
 

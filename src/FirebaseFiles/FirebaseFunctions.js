@@ -1,9 +1,11 @@
 import * as firebase from './firebase.js';
 import PostModel from '../Models/PostModel.js'
 
+const feedRef = firebase.userFeedRef 
+
 export function fetchLimitedPost(currentKey, initialCount, furtherCount, lastPostId, postFetched) {
     if (currentKey == null) {
-        firebase.userFeedRef.child(firebase.currentUserId).limitToLast(initialCount).once('value', (postsSnapshot) => {
+        feedRef.child(firebase.currentUserId).limitToLast(initialCount).once('value', (postsSnapshot) => {
             let keys = Object.keys(postsSnapshot.val());
             postsSnapshot.forEach(function (childSnapshot) {
                 let key = childSnapshot.key
@@ -11,10 +13,10 @@ export function fetchLimitedPost(currentKey, initialCount, furtherCount, lastPos
                     postFetched(model);
                 })
             });
-            lastPostId(keys[0]);
+            lastPostId(keys[0], feedRef);
         })
     } else {
-        firebase.userFeedRef.orderByKey().limitToLast(furtherCount).once('value', (snapshot) => {
+        feedRef.orderByKey().limitToLast(furtherCount).once('value', (snapshot) => {
             let keys = Object.keys(snapshot.val());
             snapshot.forEach(function (childSnapshot) {
                 let key = childSnapshot.key
@@ -24,7 +26,7 @@ export function fetchLimitedPost(currentKey, initialCount, furtherCount, lastPos
                     })
                 }
             });
-            lastPostId(keys[0]);
+            lastPostId(keys[0], feedRef);
         })
     }
 }

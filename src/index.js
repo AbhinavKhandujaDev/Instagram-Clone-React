@@ -4,17 +4,10 @@ import './index.css';
 import './common-files/styles.css';
 import './common-files/colors.css';
 import App from './App';
-import allReducers from './Redux';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux'
-
-const store = createStore(allReducers);
 
 ReactDOM.render(
-  <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </Provider>,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
   document.getElementById('root')
 );
